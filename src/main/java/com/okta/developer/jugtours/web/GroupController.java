@@ -42,6 +42,7 @@ class GroupController {
     @GetMapping("/group/{id}")
     ResponseEntity<?> getGroup(@PathVariable Long id) {
         Optional<Group> group = groupRepository.findById(id);
+        // some change
         return group.map(response -> ResponseEntity.ok().body(response))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
